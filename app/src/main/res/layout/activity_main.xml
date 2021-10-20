@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/gymBackground"
+        android:layout_width="match_parent"
+        android:layout_height="309dp"
+        android:layout_marginBottom="331dp"
+        android:foreground="@drawable/gymbackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.52"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/fitnessTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/capriola"
+        android:text="FITNESS BOOKING CENTRE"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.245" />
+
+    <TextView
+        android:id="@+id/joinNowText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/capriola"
+        android:text="JOIN NOW!"
+        android:textAllCaps="false"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textSize="16sp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="@+id/gymBackground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.122"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.632" />
+
+    <LinearLayout
+        android:id="@+id/signupORlogin"
+        android:layout_width="411dp"
+        android:layout_height="253dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gymBackground"
+        app:layout_constraintVertical_bias="0.418">
+
+        <Button
+            android:id="@+id/signupButton"
+            style="@style/Widget.AppCompat.Button.Small"
+            android:layout_width="250dp"
+            android:layout_height="100dp"
+            android:backgroundTint="#B84C26"
+            android:fontFamily="@font/capriola"
+            android:text="SIGN UP NOW"
+            android:textAllCaps="true" />
+
+        <TextView
+            android:id="@+id/orText"
+            android:layout_width="250dp"
+            android:layout_height="30dp"
+            android:layout_margin="20dp"
+            android:text="- OR -"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/loginButton"
+            style="@style/Widget.AppCompat.Button.Small"
+            android:layout_width="250dp"
+            android:layout_height="100dp"
+            android:backgroundTint="#B84C26"
+            android:fontFamily="@font/capriola"
+            android:text="LOGIN NOW"
+            android:textAllCaps="true" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

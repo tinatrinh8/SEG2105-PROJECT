@@ -22,10 +22,14 @@
 
     <Button
         android:id="@+id/loginButton"
+        style="@android:style/Widget.Holo.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="login"
+        android:background="#B84C26"
+        android:fontFamily="@font/capriola"
         android:onClick="loginEvent"
+        android:text="LOGIN"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.947"

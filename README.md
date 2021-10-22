@@ -11,13 +11,13 @@ Issue:
 The app crashes (as of now)
 
 How it Was Supposed to Run
-App was supposed to open up to login or sign up page.
-User can go back in forth.
-Admin types login and is able to go in the admin functioning centre.
-They are able to delete users after typing which ones.
-They are able to add class type ad its description, delete and update the classes.
-Once they click view results, there will be a pop of the class types and descriptions displayed.
-Instructors and members cab login/sign in and open up to their respective pages.
+- App was supposed to open up to login or sign up page.
+- User can go back in forth.
+- Admin types login and is able to go in the admin functioning centre.
+- They are able to delete users after typing which ones.
+- They are able to add class type ad its description, delete and update the classes.
+- Once they click view results, there will be a pop of the class types and descriptions displayed.
+- Instructors and members cab login/sign in and open up to their respective pages.
 
 Group Members:
 

@@ -8,7 +8,7 @@ Admin should be able to log in, add classes, delete classes, delete users and ed
 Should be a landing page for after you log in
 
 Issue:
-The app crashes (as of now)
+The app crashes completely due to runtime issues related to the SQLite. A way to fix this would be to add runtime exception handling.
 
 How it Was Supposed to Run
 - App was supposed to open up to login or sign up page.

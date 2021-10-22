@@ -10,11 +10,17 @@ import androidx.annotation.Nullable;
 
 public class DBHelper extends SQLiteOpenHelper {
 
-    public static final String DBNAME = "Login.db";
+    public static final String DBNAME = "Data.db";
     public static final int DATABASE_VERSION = 10;
+    public static final String CLASS_TABLE = "CLASS_TABLE";
+    public static final String COL1 = "Class_Type";
+    public static final String COL2 = "Class_Description";
+
 
     public DBHelper(Context context) {
-        super(context, "Login.db", null, DATABASE_VERSION);
+
+        super(context, "Data.db", null, DATABASE_VERSION);
+        SQLiteDatabase fitnessdb = this.getWritableDatabase();
     }
 
     @Override
@@ -23,6 +29,12 @@ public class DBHelper extends SQLiteOpenHelper {
         gymDB.execSQL("create Table member(username Text primary key, password TEXT)");
         gymDB.execSQL("create Table admin(username Text primary key, password TEXT)");
         String adminAccount = "INSERT INTO admin(username, password) VALUES ('admin', 'admin123'); ";
+
+        String createTable = "CREATE TABLE" + CLASS_TABLE + "( " + COL1 + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL2 + " TEXT, )";
+        gymDB.execSQL("create Table adminCLass(className Text primary key, classDescription TEXT)");
+        gymDB.execSQL("create Table instructorCLass(instructor Text primary key, className TEXT, capacity INT, dateNtime LONG)");
+        gymDB.execSQL("create Table classList(className Text primary key, className TEXT)");
+
         gymDB.execSQL(adminAccount);
 
 
@@ -34,6 +46,7 @@ public class DBHelper extends SQLiteOpenHelper {
         gymDB.execSQL("drop Table if exists member");
         gymDB.execSQL("drop Table if exists admin");
         onCreate(gymDB);
+
 
     }
 
@@ -49,6 +62,7 @@ public class DBHelper extends SQLiteOpenHelper {
         return true;
 
     }
+
 
     public Boolean checkUsername(String username, String table) {
         SQLiteDatabase gymDB = this.getWritableDatabase();
@@ -77,5 +91,44 @@ public class DBHelper extends SQLiteOpenHelper {
         if (cursor.getCount() > 0)
             return true;
         return false;
+    }
+
+    public boolean addClass(String classType, String classDescription) {
+        SQLiteDatabase gymDB = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL1, classType);
+        contentValues.put(COL2, classDescription);
+
+        long insert = gymDB.insert(CLASS_TABLE, null, contentValues);
+        if (insert == -1)
+            return false;
+        return true;
+    }
+
+    public Cursor getViewClasses() {
+        SQLiteDatabase gymDB = this.getWritableDatabase();
+        Cursor cursor = gymDB.rawQuery("Select * from " + CLASS_TABLE, null);
+        return cursor;
+    }
+
+    public boolean updateData (String classType, String classDescription) {
+
+        SQLiteDatabase gymDB = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL1, classType);
+        contentValues.put(COL2, classDescription);
+        gymDB.update(CLASS_TABLE, contentValues, "Class Type = ? ", new String[] {classType});
+
+        return true;
+    }
+
+    public Integer deleteClass(String classType) {
+        SQLiteDatabase gymDB = this.getWritableDatabase();
+        return gymDB.delete(CLASS_TABLE, "classType = ?", new String[] {classType});
+    }
+
+    public boolean deleteUser(String user) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        return db.delete(CLASS_TABLE, "classType + = ?" , new String[]{user}) > 0;
     }
 }
